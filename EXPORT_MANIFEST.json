@@ -1,7 +1,7 @@
 {
-  "scope": "Core mathematical source and completed experiment results only.",
-  "file_count": 69,
-  "total_bytes": 3489257,
+  "scope": "Core mathematical sources and completed experiment results, including the separate historical Direct PARI archive and its checked query launcher.",
+  "file_count": 85,
+  "total_bytes": 3685470,
   "files": {
     ".gitignore": {
       "bytes": 49,
@@ -12,12 +12,12 @@
       "sha256": "3a7fb83fe8f42c45f2e661c4f16f8bfb9ce3cb714e7f4b9b7d67f3b1811ae6aa"
     },
     "README.md": {
-      "bytes": 5912,
-      "sha256": "6b2e2db0cdf3c087b983024f79dc1f739904a7ecd46e243fe18cdfe314c6aeb9"
+      "bytes": 7794,
+      "sha256": "257d06296cb87f182612d62c8b55ba440308182a60df5a640cfb7dd61c78120c"
     },
     "core/SOURCE_MANIFEST.json": {
-      "bytes": 17312,
-      "sha256": "fe8f30964f0b8e0b863376f8cdd6093e132746d8ed0f073dbd12f6e84d129b6d"
+      "bytes": 19491,
+      "sha256": "ff0d50f2e3cc7cc14813048a5b1baaa09a5a18826b9e9f5ef05cb9fd409b257c"
     },
     "core/optimized_pair_20261004/code/ah_native.py": {
       "bytes": 10245,
@@ -135,6 +135,30 @@
       "bytes": 15252,
       "sha256": "f49993e36521e8317df2e33b3d737a54423d33b78df9d5b44a10f2ddd417e4ea"
     },
+    "core/pari_direct_20260930/README.md": {
+      "bytes": 4698,
+      "sha256": "668d3cf6c562ee41a8ce2600ab0321ab6bc2e9ca1ffd9f7865f51936b57b2048"
+    },
+    "core/pari_direct_20260930/direct_reference.py": {
+      "bytes": 1855,
+      "sha256": "f99f16c852200d9abbefe39e1b614fa557cfd0381e2a8e4783bbdfedeca93aa1"
+    },
+    "core/pari_direct_20260930/direct_run.py": {
+      "bytes": 4289,
+      "sha256": "c0724df0d14cf58a750ecfe0f15a3b1b0b297d71009fffb708592a7f2d34082e"
+    },
+    "core/pari_direct_20260930/direct_worker.py": {
+      "bytes": 2064,
+      "sha256": "86008fce8aab0158060f5a158bff015be0dd7a3482403b2a9b98de461e0214c0"
+    },
+    "core/pari_direct_20260930/direct_worker_failed.py": {
+      "bytes": 2045,
+      "sha256": "c9f7729658ee92c5e6605012e3aba933f1f58e3b588b17490192a1955ebb587f"
+    },
+    "core/pari_direct_20260930/query.py": {
+      "bytes": 965,
+      "sha256": "91932376e6f731174bcf2edf95f3ec98ea8277d95a7f5b897adcfe7e173190aa"
+    },
     "core/pari_variable_rank_20260930/code/methods.py": {
       "bytes": 5478,
       "sha256": "eef95506fd8a0084802341c5fe64f9b56b766ba3f555358c6195a0e8e135ae11"
@@ -176,8 +200,8 @@
       "sha256": "77ee2564b6e52905c321d6399b7ab296ba7670a1290ffe1e0950ec88db643196"
     },
     "results/README.md": {
-      "bytes": 3998,
-      "sha256": "f148d0072c5464e6d09b900fee0c66f5dc26ee10f0d3a622022ac8abef56f72b"
+      "bytes": 4730,
+      "sha256": "ab96862f26fefd8fa38f62883e982757e79cfc4bcfb9cd9409f4ba2e187201f6"
     },
     "results/aligned_175_cells.csv": {
       "bytes": 66771,
@@ -255,6 +279,46 @@
       "bytes": 9874,
       "sha256": "bcddc2214007a5c5cab7469c912f632d3bb9802aca054994001691e88898c9f2"
     },
+    "results/pari_direct_20260930/README.md": {
+      "bytes": 2466,
+      "sha256": "49b9334c5417c0fde79178635bfe6762e3ba3515c5f9c4ccc8b6a331bd63027b"
+    },
+    "results/pari_direct_20260930/direct_failed_attempt.jsonl": {
+      "bytes": 787,
+      "sha256": "9555213be6737c081108af90d8ae33ae8e09908aa178d8530a379321bb645d18"
+    },
+    "results/pari_direct_20260930/direct_failed_identity.json": {
+      "bytes": 451,
+      "sha256": "899e81c659a9f7e7c68b2401d109979bcc4064c3dd206e55aef9d1075b372710"
+    },
+    "results/pari_direct_20260930/direct_identity.json": {
+      "bytes": 451,
+      "sha256": "df34098071b4f5bd402cfb6766b2fe07913e2f8ba93282a48294b53d3a42c0fa"
+    },
+    "results/pari_direct_20260930/direct_raw.jsonl": {
+      "bytes": 47173,
+      "sha256": "54a5a669056a16ca450191267bc92eb505b5e869f95b2cb632cbe42256030936"
+    },
+    "results/pari_direct_20260930/direct_summary.json": {
+      "bytes": 16259,
+      "sha256": "2b5bd300e679d538030c13d3fb20626703fd4f53fbf2cfce718454eef7ffdaf1"
+    },
+    "results/pari_direct_20260930/environment.json": {
+      "bytes": 2602,
+      "sha256": "984a7f5f5acd0476f7a2a282feaa9ae9b37c111d5a99bd907ba08f421b4cce4c"
+    },
+    "results/pari_direct_20260930/raw.jsonl": {
+      "bytes": 92456,
+      "sha256": "f89ecc5ec525136b7927ace389e1100f76bafec28419de9f678d66875e93b534"
+    },
+    "results/pari_direct_20260930/software_versions.json": {
+      "bytes": 537,
+      "sha256": "fb0984f80ecc9f640c23ae5fcd1494c1f8a48c59a37adcf274efce76b86c9891"
+    },
+    "results/pari_direct_20260930/validation.json": {
+      "bytes": 4989,
+      "sha256": "f3920d99392087a249fea377807a7e6b067df6ccdd93f7c46759e897d37799f3"
+    },
     "results/six_case_stages.csv": {
       "bytes": 1634,
       "sha256": "4ec4a39f4a7129777ec4f3f2b0e2532373ffbd2db422cf9b3262246f836ad6d2"
@@ -276,8 +340,8 @@
       "sha256": "9389c760f79ec55c0782eccd0582b62576409bcfbcd12f9f78afc1b224057bc2"
     },
     "verify_results.py": {
-      "bytes": 6348,
-      "sha256": "043d8580c84d89cc902acaecf0add9874b521ff3de33bdd83ddc93c2748b39ed"
+      "bytes": 13681,
+      "sha256": "eccf2dd5d8b288ae13a58775dfa1d3654db744a8885263c82b28ad7ebd7bb881"
     }
   }
 }

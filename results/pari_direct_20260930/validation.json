@@ -1,0 +1,324 @@
+{
+  "status": "PASS",
+  "fields": [
+    {
+      "N": 2,
+      "modulus": 7,
+      "irreducible": true
+    },
+    {
+      "N": 4,
+      "modulus": 19,
+      "irreducible": true
+    },
+    {
+      "N": 6,
+      "modulus": 67,
+      "irreducible": true
+    },
+    {
+      "N": 8,
+      "modulus": 283,
+      "irreducible": true
+    },
+    {
+      "N": 12,
+      "modulus": 4179,
+      "irreducible": true
+    }
+  ],
+  "matrix_checks": [
+    {
+      "L": 2,
+      "P": 1,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 2,
+      "P": 2,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 2,
+      "P": 3,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 2,
+      "P": 4,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 2,
+      "P": 5,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 2,
+      "P": 6,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 2,
+      "P": 7,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 2,
+      "P": 8,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 3,
+      "P": 1,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 3,
+      "P": 2,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 3,
+      "P": 3,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 3,
+      "P": 4,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 3,
+      "P": 5,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 3,
+      "P": 6,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 3,
+      "P": 7,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 3,
+      "P": 8,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 4,
+      "P": 1,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 4,
+      "P": 2,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 4,
+      "P": 3,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 4,
+      "P": 4,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 4,
+      "P": 5,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 4,
+      "P": 6,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 4,
+      "P": 7,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 4,
+      "P": 8,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 5,
+      "P": 1,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 5,
+      "P": 2,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 5,
+      "P": 3,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 5,
+      "P": 4,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 5,
+      "P": 5,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 5,
+      "P": 6,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 5,
+      "P": 7,
+      "all_coefficients_equal": true
+    },
+    {
+      "L": 5,
+      "P": 8,
+      "all_coefficients_equal": true
+    }
+  ],
+  "direct_checks": [
+    {
+      "N": 2,
+      "L": 2,
+      "a": 1,
+      "direct_sum": 3,
+      "ah_result": 3
+    },
+    {
+      "N": 2,
+      "L": 3,
+      "a": 1,
+      "direct_sum": 5,
+      "ah_result": 5
+    },
+    {
+      "N": 2,
+      "L": 2,
+      "a": 2,
+      "direct_sum": -1,
+      "ah_result": -1
+    },
+    {
+      "N": 2,
+      "L": 3,
+      "a": 2,
+      "direct_sum": -3,
+      "ah_result": -3
+    },
+    {
+      "N": 2,
+      "L": 2,
+      "a": 3,
+      "direct_sum": -1,
+      "ah_result": -1
+    },
+    {
+      "N": 2,
+      "L": 3,
+      "a": 3,
+      "direct_sum": -3,
+      "ah_result": -3
+    },
+    {
+      "N": 4,
+      "L": 2,
+      "a": 1,
+      "direct_sum": -1,
+      "ah_result": -1
+    },
+    {
+      "N": 4,
+      "L": 3,
+      "a": 1,
+      "direct_sum": -15,
+      "ah_result": -15
+    },
+    {
+      "N": 4,
+      "L": 2,
+      "a": 2,
+      "direct_sum": -1,
+      "ah_result": -1
+    },
+    {
+      "N": 4,
+      "L": 3,
+      "a": 2,
+      "direct_sum": -15,
+      "ah_result": -15
+    },
+    {
+      "N": 4,
+      "L": 2,
+      "a": 3,
+      "direct_sum": -1,
+      "ah_result": -1
+    },
+    {
+      "N": 4,
+      "L": 3,
+      "a": 3,
+      "direct_sum": -15,
+      "ah_result": -15
+    },
+    {
+      "N": 6,
+      "L": 2,
+      "a": 1,
+      "direct_sum": -9,
+      "ah_result": -9
+    },
+    {
+      "N": 6,
+      "L": 3,
+      "a": 1,
+      "direct_sum": 17,
+      "ah_result": 17
+    },
+    {
+      "N": 6,
+      "L": 2,
+      "a": 2,
+      "direct_sum": -1,
+      "ah_result": -1
+    },
+    {
+      "N": 6,
+      "L": 3,
+      "a": 2,
+      "direct_sum": -63,
+      "ah_result": -63
+    },
+    {
+      "N": 6,
+      "L": 2,
+      "a": 3,
+      "direct_sum": -9,
+      "ah_result": -9
+    },
+    {
+      "N": 6,
+      "L": 3,
+      "a": 3,
+      "direct_sum": 17,
+      "ah_result": 17
+    }
+  ],
+  "matrix_corruption_rejected": true,
+  "value_corruption_rejected": true,
+  "elapsed_seconds": 0.04034461919218302,
+  "reference_sha256": "c3abfa5c9c45966ab0f237ba3206f3502301d1b5efa00f57f0f067439957a292"
+}

@@ -1,6 +1,6 @@
 {
   "schema": "kloosterman-core-source-export-v1",
-  "scope": "Exact frozen sources of the published AH/Bessel mainline and five full-table baselines, with native build recipes and local mathematical dependencies. No historical reviews, protocols, audits, worker logs, third-party source excerpts, native binaries, or environment files are included.",
+  "scope": "Exact frozen sources of the AH/Bessel mainline, five full-table baselines, and the separate historical low-rank Direct PARI worker, reference, runner and failed-worker archive. Native build recipes and local mathematical dependencies are retained; native binaries and third-party source excerpts are not included.",
   "files": {
     "optimized_pair_20261004/code/ah_native.py": {
       "source_relative_path": "repository/optimized_pair_20261004/code/ah_native.py",
@@ -239,16 +239,45 @@
       "distributed_sha256": "d0864203c480c186d400f7110d4afe7e74c8192666b7447b6b891e108c6859c2",
       "bytes": 4984,
       "path_text_sanitized": false
+    },
+    "pari_direct_20260930/direct_worker.py": {
+      "source_relative_path": "literature_revision_20260930/open_source_benchmarks/binary_query/direct_worker.py",
+      "original_sha256": "86008fce8aab0158060f5a158bff015be0dd7a3482403b2a9b98de461e0214c0",
+      "distributed_sha256": "86008fce8aab0158060f5a158bff015be0dd7a3482403b2a9b98de461e0214c0",
+      "bytes": 2064,
+      "path_text_sanitized": false
+    },
+    "pari_direct_20260930/direct_reference.py": {
+      "source_relative_path": "literature_revision_20260930/open_source_benchmarks/binary_query/direct_reference.py",
+      "original_sha256": "f99f16c852200d9abbefe39e1b614fa557cfd0381e2a8e4783bbdfedeca93aa1",
+      "distributed_sha256": "f99f16c852200d9abbefe39e1b614fa557cfd0381e2a8e4783bbdfedeca93aa1",
+      "bytes": 1855,
+      "path_text_sanitized": false
+    },
+    "pari_direct_20260930/direct_run.py": {
+      "source_relative_path": "literature_revision_20260930/open_source_benchmarks/binary_query/direct_run.py",
+      "original_sha256": "c0724df0d14cf58a750ecfe0f15a3b1b0b297d71009fffb708592a7f2d34082e",
+      "distributed_sha256": "c0724df0d14cf58a750ecfe0f15a3b1b0b297d71009fffb708592a7f2d34082e",
+      "bytes": 4289,
+      "path_text_sanitized": false
+    },
+    "pari_direct_20260930/direct_worker_failed.py": {
+      "source_relative_path": "literature_revision_20260930/open_source_benchmarks/binary_query/direct_worker_failed.py",
+      "original_sha256": "c9f7729658ee92c5e6605012e3aba933f1f58e3b588b17490192a1955ebb587f",
+      "distributed_sha256": "c9f7729658ee92c5e6605012e3aba933f1f58e3b588b17490192a1955ebb587f",
+      "bytes": 2045,
+      "path_text_sanitized": false
     }
   },
-  "file_count": 34,
-  "source_bytes": 503478,
+  "file_count": 38,
+  "source_bytes": 513731,
   "source_archive_limitations": [
     "This is a source snapshot, not a newly ported executable distribution. Native loaders/build scripts still bind the original build identities and reviews; those local historical files are deliberately not exported. Fresh execution requires new paths, local build receipts, and dependency identities.",
     "AH mainline uses block_acquisition.acquire; Bessel mainline uses fair_acquire.acquire with ordinary_int. Optional older AH/Bessel backend branches in fair_acquire and recovery are outside this export.",
     "Ordered matrix readout uses rank_query.query or grid_query.query. Their old-readout helpers and local packed-composition sources are included; native binaries must be rebuilt externally.",
     "The optional standalone validation branches of ah_native.py and fast_convolution.py are not exported.",
-    "PARI methods.run_pari and its setup/input helpers are included. The optional historical run_shared comparison helper requires an unexported candidate implementation and is outside this export."
+    "PARI methods.run_pari and its setup/input helpers are included. The optional historical run_shared comparison helper requires an unexported candidate implementation and is outside this export.",
+    "Direct PARI is a separate N=2,4,6,8,12; L=2,3 historical campaign. The unchanged direct_run.py binds an original Python path and expects the original artifact layout. query.py is a new input-checking launcher for the unchanged worker; it was not used for the recorded timings. direct_worker_failed.py is retained only as failure provenance. See pari_direct_20260930/README.md."
   ],
   "external_dependencies": [
     "Python 3.13.15 was used for the reported measurements",
@@ -261,9 +290,10 @@
     "Bessel acquisition": "optimized_pair_20261004/reconstruction/carrier_coverage/fair_acquire.py:acquire(ordinary_int, ...)",
     "rank readout": "optimized_pair_20261004/reconstruction/rank_extension/rank_query.py:query",
     "expanded grid readout": "optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_query.py:query",
-    "PARI": "pari_variable_rank_20260930/code/methods.py:run_pari",
     "sequential and binary convolution": "rank_cost_optimized_20260930/reference/code/convolution.py:run",
     "packed convolution": "rank_cost_optimized_20260930/code/fast_convolution.py:run",
-    "FWHT": "rank_cost_optimized_20260930/code/fwht.py:run"
+    "FWHT": "rank_cost_optimized_20260930/code/fwht.py:run",
+    "PARI cyclic powering": "pari_variable_rank_20260930/code/methods.py:run_pari",
+    "PARI low-rank point counting": "pari_direct_20260930/direct_worker.py:main"
   }
 }

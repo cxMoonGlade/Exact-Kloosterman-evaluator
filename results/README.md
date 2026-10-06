@@ -1,6 +1,6 @@
 # Retained experimental results
 
-This directory contains compact result tables, exact integer outputs and figures for the completed experiments. It omits the full local receipt archive, experiment protocols, historical development audits and runtime installations.
+This directory contains compact result tables, exact integer outputs and figures for the completed experiments, plus a separate low-rank Direct PARI archive. It omits the full local research archive, experiment protocols, historical development audits and runtime installations.
 
 | Dataset label | Worker appearances | Exact outputs | Scope |
 | --- | ---: | ---: | --- |
@@ -12,7 +12,13 @@ This directory contains compact result tables, exact integer outputs and figures
 | `even_n36` | 42 | 168 | N=36; seven even ranks; AH and Bessel |
 | `figure1_extension` | 120 | 480 | N=24,32,48,64; L=4,6,8,12,16; AH and Bessel |
 
-These are 1,215 dataset appearances of 1,107 original worker streams. Exactly 108 original streams occur in more than one dataset. Repeated `sample_id` values identify reused measurements; do not count them as independent repetitions. PARI contributes 75 successful workers and 300 exact outputs in `aligned_baseline`. Method labels retain the original code names: `ordinary_int` and `ordinary_new` denote Bessel matrix recurrence; `ah_block_second` and `ah_new` denote the corresponding AH implementation.
+The four-query datasets above contain 1,215 dataset appearances of 1,107 original worker streams. Exactly 108 original streams occur in more than one dataset. Repeated `sample_id` values identify reused measurements; do not count them as independent repetitions. PARI contributes 75 successful workers and 300 exact outputs in `aligned_baseline`. Method labels retain the original code names: `ordinary_int` and `ordinary_new` denote Bessel matrix recurrence; `ah_block_second` and `ah_new` denote the corresponding AH implementation.
+
+## Separate low-rank Direct PARI archive
+
+[`pari_direct_20260930/`](pari_direct_20260930/) preserves 90 Direct PARI single-query runs, their summaries and provenance, plus the 180 earlier Python-AH/Sage-PARI comparison records and saved validation. These records are not included in the four-query counts or CSV tables above. The Direct PARI computation clock includes field/parameter/curve construction and recovery, with imports and runtime initialization recorded separately; the archive also retains parent process durations. This is a historical low-rank comparison, not a matched test of the current native algorithms.
+
+## Four-query dataset formats
 
 `exact_outputs.csv` contains decimal signed integers and their field polynomial `f`, parameter `a`, query position, rank, degree, method, repeat, dataset, original attempt ID and distributed source hash. The gzip copy contains the same bytes. Parse integer fields with arbitrary precision: spreadsheet or floating-point conversions can lose digits. Comparisons during extraction were restricted to the same `(dataset, N, L, f, a)`. Agreement on large fields is not an independent full-table validation.
 
