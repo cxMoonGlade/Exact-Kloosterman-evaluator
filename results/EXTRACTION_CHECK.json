@@ -1,0 +1,121 @@
+{
+  "status": "PASS",
+  "scientific_execution": false,
+  "dataset_workers": {
+    "six_case": 36,
+    "aligned_reference": 150,
+    "aligned_baseline": 375,
+    "odd_even": 240,
+    "even_serial": 252,
+    "even_n36": 42,
+    "figure1_extension": 120
+  },
+  "exact_output_rows": 4860,
+  "unique_original_raw_streams": 1107,
+  "pari_workers": 75,
+  "pari_exact_outputs": 300,
+  "overlapping_source_streams": 108,
+  "overlap_policy": "Repeated sample_id denotes the same original raw stream reused by multiple datasets; dataset totals must not be summed as independent repetitions.",
+  "precision_policy": "Signed integer outputs copied exactly; decimal CSV fields must be parsed as arbitrary-precision integers.",
+  "consistency_scope": "Compared only within (dataset, N, L, f, a); no cross-field or cross-dataset oracle claim.",
+  "source_manifest_sha256": {
+    "artifact": "ee3b316e41994675784d8487200b4cb798f8d52c17f7377b2bdceb9470f048be",
+    "artifact_extension": "4dd1b0183517a79ff29fc6bbacc93a829459dfabade507f59fa0c3c4aa8c0c6e"
+  },
+  "checked_source_files": {
+    "artifact": 2163,
+    "artifact_extension": 240
+  },
+  "copied_result_sources": {
+    "CHECK.json": {
+      "source": "artifact/recomputed/CHECK.json",
+      "source_sha256": "e320869b505028ab319585fbbf1f352a8e8ec319957c3a62b5766053d4903667"
+    },
+    "EVEN_STATISTICS_CHECK.json": {
+      "source": "artifact/recomputed/EVEN_STATISTICS_CHECK.json",
+      "source_sha256": "3e03f7b0f8e1c77af3dd8818776237bfe823d0d14f0daaf18b8246f6456694cc"
+    },
+    "aligned_175_cells.csv": {
+      "source": "artifact/recomputed/aligned_175_cells.csv",
+      "source_sha256": "87556d7e154d46918d3b0fd9be5aa91229d5c5dd52f425e290b8539267eb0eac"
+    },
+    "aligned_25_medians_seconds.csv": {
+      "source": "artifact/recomputed/aligned_25_medians_seconds.csv",
+      "source_sha256": "008b08f93c755a66a0e8379d612021afd9a3cf4ba9d4dbe99092bc576cffeb88"
+    },
+    "aligned_counts.csv": {
+      "source": "artifact/recomputed/aligned_counts.csv",
+      "source_sha256": "cef07497d3cc835bee2322ff1830513f8cf68242a5d04a74c6bedcaac5599e43"
+    },
+    "even_n36_14_cells.csv": {
+      "source": "artifact/recomputed/even_n36_14_cells.csv",
+      "source_sha256": "74b455bee0bb4856293655d2c9e26f989ce12893ba1bd95763d8a45ef7cf08e1"
+    },
+    "even_serial_84_cells.csv": {
+      "source": "artifact/recomputed/even_serial_84_cells.csv",
+      "source_sha256": "277efff6ace4af4af2c821b04e8fd1bf83bbd74f6af8c182f03a6d39c99ad2d5"
+    },
+    "odd_even_80_cells.csv": {
+      "source": "artifact/recomputed/odd_even_80_cells.csv",
+      "source_sha256": "40ddad361d381ba16cb94ef7bb67171d2df18a0282f259ba3e727fd2cbc457e0"
+    },
+    "odd_even_counts.csv": {
+      "source": "artifact/recomputed/odd_even_counts.csv",
+      "source_sha256": "d5e39398b525363fa9e378309616dc0206f5426bbd76ceed0e85520fa1a7d684"
+    },
+    "six_case_stages.csv": {
+      "source": "artifact/recomputed/six_case_stages.csv",
+      "source_sha256": "4ec4a39f4a7129777ec4f3f2b0e2532373ffbd2db422cf9b3262246f836ad6d2"
+    },
+    "six_case_times_ms.csv": {
+      "source": "artifact/recomputed/six_case_times_ms.csv",
+      "source_sha256": "f4c3cd381d2fe42890e3bda7ebfc90185c3e98a9883a42d8f0363f61738ad0d3"
+    },
+    "FIGURE1_EXTENSION_CHECK.json": {
+      "source": "artifact_extension/reproduced_figure1_extension/FIGURE1_EXTENSION_CHECK.json",
+      "source_sha256": "d916bc5c33c7c05ca57d863e05ae08c80675255f748eaecd764a3fc6124f4497"
+    },
+    "figure1_added_40_cells.csv": {
+      "source": "artifact_extension/reproduced_figure1_extension/figure1_added_40_cells.csv",
+      "source_sha256": "d669b11ac545d57677f5946d37b8a785e3559445c64ab913b45acc40297505e5"
+    },
+    "PARI_CHECK.json": {
+      "source": "results/PARI_CHECK.json",
+      "source_sha256": "77ee2564b6e52905c321d6399b7ab296ba7670a1290ffe1e0950ec88db643196"
+    },
+    "pari_25_cells.csv": {
+      "source": "results/pari_25_cells.csv",
+      "source_sha256": "bcddc2214007a5c5cab7469c912f632d3bb9802aca054994001691e88898c9f2"
+    },
+    "figures/aligned_times.svg": {
+      "source": "artifact/repository/paper_low_math/report_kloosterman/figures/aligned_times.svg",
+      "source_sha256": "061891836a9497681b499f82c78c0323448a5e7dd6d9cf51c6d09c0dc7ef2192",
+      "original_sha256": "061891836a9497681b499f82c78c0323448a5e7dd6d9cf51c6d09c0dc7ef2192"
+    },
+    "figures/aligned_times.csv": {
+      "source": "artifact/repository/paper_low_math/report_kloosterman/figures/aligned_times.csv",
+      "source_sha256": "f0efe50143b882b04398aad95073d171e5916140ff40a3d0befc3dc80e671214",
+      "original_sha256": "f0efe50143b882b04398aad95073d171e5916140ff40a3d0befc3dc80e671214"
+    },
+    "figures/odd_even_times.svg": {
+      "source": "artifact/repository/paper_low_math/report_kloosterman/figures/odd_even_times.svg",
+      "source_sha256": "3d7e2321042f44fa1ea49fb1c20d04a604c97c85ccc7c5c96cea37faa7cad797",
+      "original_sha256": "3d7e2321042f44fa1ea49fb1c20d04a604c97c85ccc7c5c96cea37faa7cad797"
+    },
+    "figures/odd_even_times.csv": {
+      "source": "artifact/repository/paper_low_math/report_kloosterman/figures/odd_even_times.csv",
+      "source_sha256": "12e48a0ebb9c3c5c163ae85fa38eb444c08d3c3a5d45efb5aa6199d836cfd9ac",
+      "original_sha256": "12e48a0ebb9c3c5c163ae85fa38eb444c08d3c3a5d45efb5aa6199d836cfd9ac"
+    },
+    "figures/even_scaling_times.svg": {
+      "source": "artifact/repository/paper_low_math/report_kloosterman/figures/even_scaling_times.svg",
+      "source_sha256": "f7027131bd010c6664274618397b480455886ff38cf6c01aa0f127d411ce6dc4",
+      "original_sha256": "f7027131bd010c6664274618397b480455886ff38cf6c01aa0f127d411ce6dc4"
+    },
+    "figures/even_scaling_times.csv": {
+      "source": "artifact/repository/paper_low_math/report_kloosterman/figures/even_scaling_times.csv",
+      "source_sha256": "6e267a853aa1788d81ddd41cff5fab6ee96ee20991866e36d8a742620491b455",
+      "original_sha256": "6e267a853aa1788d81ddd41cff5fab6ee96ee20991866e36d8a742620491b455"
+    }
+  }
+}

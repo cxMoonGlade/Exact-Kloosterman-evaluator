@@ -1,0 +1,16 @@
+ranks,method,baseline,method_lower,baseline_lower,equal
+all,ah_new,ordinary_new,14,6,0
+all,ah_new,fwht,10,10,0
+all,ordinary_new,fwht,9,11,0
+all,ah_new,kronecker_binary,10,10,0
+all,ordinary_new,kronecker_binary,10,10,0
+odd,ah_new,ordinary_new,6,4,0
+odd,ah_new,fwht,5,5,0
+odd,ordinary_new,fwht,4,6,0
+odd,ah_new,kronecker_binary,5,5,0
+odd,ordinary_new,kronecker_binary,5,5,0
+even,ah_new,ordinary_new,8,2,0
+even,ah_new,fwht,5,5,0
+even,ordinary_new,fwht,5,5,0
+even,ah_new,kronecker_binary,5,5,0
+even,ordinary_new,kronecker_binary,5,5,0

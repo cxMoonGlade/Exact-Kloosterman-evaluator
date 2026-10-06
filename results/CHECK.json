@@ -1,0 +1,232 @@
+{
+  "ah_bessel_counts": {
+    "AH_lower": 9,
+    "Bessel_lower": 16,
+    "equal": 0
+  },
+  "status": "PASS_COMPLETE",
+  "six_case_workers": 36,
+  "six_case_integers": 144,
+  "reference_workers": 150,
+  "baseline_complete_workers": 375,
+  "planned_baseline_workers": 375,
+  "pending": [],
+  "scope": "Read-only arithmetic on stored clocks/integers; no benchmark, mathematical solver, or performance experiment executed.",
+  "odd_even_benchmark": {
+    "status": "PASS_COMPLETE",
+    "workers": 240,
+    "integers": 960,
+    "cells": 80,
+    "comparisons": [
+      {
+        "ranks": "all",
+        "method": "ah_new",
+        "baseline": "ordinary_new",
+        "method_lower": 14,
+        "baseline_lower": 6,
+        "equal": 0
+      },
+      {
+        "ranks": "all",
+        "method": "ah_new",
+        "baseline": "fwht",
+        "method_lower": 10,
+        "baseline_lower": 10,
+        "equal": 0
+      },
+      {
+        "ranks": "all",
+        "method": "ordinary_new",
+        "baseline": "fwht",
+        "method_lower": 9,
+        "baseline_lower": 11,
+        "equal": 0
+      },
+      {
+        "ranks": "all",
+        "method": "ah_new",
+        "baseline": "kronecker_binary",
+        "method_lower": 10,
+        "baseline_lower": 10,
+        "equal": 0
+      },
+      {
+        "ranks": "all",
+        "method": "ordinary_new",
+        "baseline": "kronecker_binary",
+        "method_lower": 10,
+        "baseline_lower": 10,
+        "equal": 0
+      },
+      {
+        "ranks": "odd",
+        "method": "ah_new",
+        "baseline": "ordinary_new",
+        "method_lower": 6,
+        "baseline_lower": 4,
+        "equal": 0
+      },
+      {
+        "ranks": "odd",
+        "method": "ah_new",
+        "baseline": "fwht",
+        "method_lower": 5,
+        "baseline_lower": 5,
+        "equal": 0
+      },
+      {
+        "ranks": "odd",
+        "method": "ordinary_new",
+        "baseline": "fwht",
+        "method_lower": 4,
+        "baseline_lower": 6,
+        "equal": 0
+      },
+      {
+        "ranks": "odd",
+        "method": "ah_new",
+        "baseline": "kronecker_binary",
+        "method_lower": 5,
+        "baseline_lower": 5,
+        "equal": 0
+      },
+      {
+        "ranks": "odd",
+        "method": "ordinary_new",
+        "baseline": "kronecker_binary",
+        "method_lower": 5,
+        "baseline_lower": 5,
+        "equal": 0
+      },
+      {
+        "ranks": "even",
+        "method": "ah_new",
+        "baseline": "ordinary_new",
+        "method_lower": 8,
+        "baseline_lower": 2,
+        "equal": 0
+      },
+      {
+        "ranks": "even",
+        "method": "ah_new",
+        "baseline": "fwht",
+        "method_lower": 5,
+        "baseline_lower": 5,
+        "equal": 0
+      },
+      {
+        "ranks": "even",
+        "method": "ordinary_new",
+        "baseline": "fwht",
+        "method_lower": 5,
+        "baseline_lower": 5,
+        "equal": 0
+      },
+      {
+        "ranks": "even",
+        "method": "ah_new",
+        "baseline": "kronecker_binary",
+        "method_lower": 5,
+        "baseline_lower": 5,
+        "equal": 0
+      },
+      {
+        "ranks": "even",
+        "method": "ordinary_new",
+        "baseline": "kronecker_binary",
+        "method_lower": 5,
+        "baseline_lower": 5,
+        "equal": 0
+      }
+    ],
+    "validation_counts": {
+      "small_convolutions": 15,
+      "small_query_comparisons": 80,
+      "literal_traces": 80,
+      "grid_outputs": 320,
+      "grid_precision_pairs": 160,
+      "gaussian_queries": 40
+    }
+  },
+  "even_rank_extension": {
+    "status": "PASS_COMPLETE",
+    "serial": {
+      "status": "PASS_COMPLETE",
+      "workers": 252,
+      "integers": 1008,
+      "input_pairs": 42,
+      "method_cells": 84,
+      "stage_statistics": 2100,
+      "cpu_affinity": [
+        0
+      ],
+      "threads": 1,
+      "address_space_limit_bytes": 85899345920,
+      "cpu_model": "Unknown in original worker/manifest records; not inferred from the current host.",
+      "recorded_python_flint_versions": [
+        "0.9.0"
+      ],
+      "recorded_flint_versions": [
+        "3.6.0"
+      ],
+      "timing_scope": "Parent process launch through communicate/reap, including initialization and four exact queries.",
+      "scheduling_scope": "One grid worker at a time; other host workloads were not excluded.",
+      "memory_scope": "Recorded VmHWM is a query-end high-water snapshot, not a separately measured lifetime maximum."
+    },
+    "n36": {
+      "status": "PASS_COMPLETE",
+      "workers": 42,
+      "integers": 168,
+      "input_pairs": 7,
+      "method_cells": 14,
+      "validation_counts": {
+        "acquisitions": 26,
+        "new_queries": 104,
+        "old_queries": 8,
+        "precision_integer_pairs": 24,
+        "backend_integer_pairs": 24,
+        "same_P_object_pairs": 8,
+        "convolutions": 7,
+        "convolution_values": 56,
+        "controls": 3
+      },
+      "cpus": [
+        1,
+        4,
+        5,
+        6,
+        7
+      ],
+      "threads": 1,
+      "address_space_limit_bytes": 17179869184,
+      "cpu_model_by_processor": {
+        "1": "Intel(R) Core(TM) Ultra 9 285K",
+        "4": "Intel(R) Core(TM) Ultra 9 285K",
+        "5": "Intel(R) Core(TM) Ultra 9 285K",
+        "6": "Intel(R) Core(TM) Ultra 9 285K",
+        "7": "Intel(R) Core(TM) Ultra 9 285K"
+      },
+      "platform": "Linux-6.17.0-1030-oem-x86_64-with-glibc2.39",
+      "timing_scope": "Frozen grid cold-worker operations; parent launch through communicate/reap.",
+      "scheduling_scope": "New concurrent-worker campaign; paired methods share the assigned CPU within each repetition.",
+      "comparability": "New N=36 observations remain a separate execution batch from the historical serial grid."
+    },
+    "figure": {
+      "status": "PASS",
+      "csv_records": 98,
+      "csv_samples": 294,
+      "plotted_points": 70,
+      "plotted_samples": 210,
+      "plotted_input_pairs": 35
+    },
+    "figure_rows_verified": 98,
+    "verified_distributed_files": 723,
+    "hash_policy": "Distributed bytes checked against sha256; embedded pre-sanitization identities checked against original_sha256.",
+    "scientific_execution": false,
+    "limitations": [
+      "Exact recorded integer consistency is reproduced; mathematical kernels are not rerun.",
+      "Stage medians are separately aggregated and need not sum to the median total."
+    ]
+  },
+  "figure_medians_verified": 353
+}

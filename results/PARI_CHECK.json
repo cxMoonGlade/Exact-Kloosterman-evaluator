@@ -1,0 +1,10 @@
+{
+  "status": "PASS_COMPLETE",
+  "method": "pari_cyclic",
+  "cells": 25,
+  "successful_workers": 75,
+  "exact_outputs": 300,
+  "source": "artifact/recomputed/aligned_175_cells.csv",
+  "source_sha256": "87556d7e154d46918d3b0fd9be5aa91229d5c5dd52f425e290b8539267eb0eac",
+  "scope": "Filtered view of verified archived timings; no new evaluator run."
+}

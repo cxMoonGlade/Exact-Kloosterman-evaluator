@@ -1,0 +1,22 @@
+{
+  "status": "PASS_COMPLETE",
+  "scientific_execution": false,
+  "added_workers": 120,
+  "added_integer_outputs": 480,
+  "added_method_cells": 40,
+  "historical_rows_unchanged": 175,
+  "figure_rows_verified": 215,
+  "figure_observations": 645,
+  "plotted_coordinates_verified": 215,
+  "precheck_records_excluded": 150,
+  "unmeasured_method_cells": 100,
+  "no_historical_record_method_cells": 50,
+  "verified_distributed_files": 429,
+  "source_scope": "Original 175-point dataset unchanged; 40 new plotted matrix cells use existing serial formal measurements.",
+  "limitations": [
+    "No new algorithm execution occurs. Full-table methods have no successful measured times at the added degrees.",
+    "Memory prechecks are not actual OOM or timeout observations and their process durations are not plotted.",
+    "The storage calculation describes the retained implementations; it is not a universal algorithm lower bound.",
+    "Historical matrix workers used CPU 0 with an 80 GiB address-space limit; the original worker records do not identify the CPU model."
+  ]
+}

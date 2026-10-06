@@ -1,0 +1,269 @@
+{
+  "schema": "kloosterman-core-source-export-v1",
+  "scope": "Exact frozen sources of the published AH/Bessel mainline and five full-table baselines, with native build recipes and local mathematical dependencies. No historical reviews, protocols, audits, worker logs, third-party source excerpts, native binaries, or environment files are included.",
+  "files": {
+    "optimized_pair_20261004/code/ah_native.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/code/ah_native.py",
+      "original_sha256": "ae1a7034d9f7b517f0f5c545770d3e90034db32e2db24de3a65549ff13e72d70",
+      "distributed_sha256": "ae1a7034d9f7b517f0f5c545770d3e90034db32e2db24de3a65549ff13e72d70",
+      "bytes": 10245,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/code/common.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/code/common.py",
+      "original_sha256": "7a86406d2ed9e09133f52b663cc112efd5cc5fb50964a169cdd74e42d881ebc1",
+      "distributed_sha256": "7a86406d2ed9e09133f52b663cc112efd5cc5fb50964a169cdd74e42d881ebc1",
+      "bytes": 14998,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/batch/build.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/batch/build.py",
+      "original_sha256": "07fd07cdf5e7400aa8433d95447b702592743df4f845fa24779d284771ff4e76",
+      "distributed_sha256": "07fd07cdf5e7400aa8433d95447b702592743df4f845fa24779d284771ff4e76",
+      "bytes": 6517,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/batch/compose.c": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/batch/compose.c",
+      "original_sha256": "28baa0188c23a993cbdfef3faa1d1de55b5ee6016125e0e053f0eae8e2e31cb6",
+      "distributed_sha256": "28baa0188c23a993cbdfef3faa1d1de55b5ee6016125e0e053f0eae8e2e31cb6",
+      "bytes": 9304,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/batch/flint_only/interop_flint.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/batch/flint_only/interop_flint.py",
+      "original_sha256": "1f39ad510cc96f807d38c6093d6bef891ec40182484fc37c567a2bcc9d35d712",
+      "distributed_sha256": "1f39ad510cc96f807d38c6093d6bef891ec40182484fc37c567a2bcc9d35d712",
+      "bytes": 11325,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/block_second/block.c": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/block_second/block.c",
+      "original_sha256": "f7ffc4750072a6062ab9e032e90722f7738f608f08f817c43968e5e56da67a6f",
+      "distributed_sha256": "f7ffc4750072a6062ab9e032e90722f7738f608f08f817c43968e5e56da67a6f",
+      "bytes": 56496,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/block_second/block_acquisition.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/block_second/block_acquisition.py",
+      "original_sha256": "beb61eb78ccb0e74e429f59d2142c20a139d021313ad81b2854cf0f267e8d96a",
+      "distributed_sha256": "beb61eb78ccb0e74e429f59d2142c20a139d021313ad81b2854cf0f267e8d96a",
+      "bytes": 4932,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/block_second/block_interop.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/block_second/block_interop.py",
+      "original_sha256": "df72089ce3d4e8978fc0e17fe6a926ec8f0abcfe00851d7a0ef3a99c3dfcfcb5",
+      "distributed_sha256": "df72089ce3d4e8978fc0e17fe6a926ec8f0abcfe00851d7a0ef3a99c3dfcfcb5",
+      "bytes": 23442,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/block_second/build.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/block_second/build.py",
+      "original_sha256": "336a68f8c5d2948e89d5b1245d1b06e3dc5dfc0b3fea55fac9ba0173bf7a1505",
+      "distributed_sha256": "336a68f8c5d2948e89d5b1245d1b06e3dc5dfc0b3fea55fac9ba0173bf7a1505",
+      "bytes": 15430,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/carrier_coverage/fair_acquire.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/carrier_coverage/fair_acquire.py",
+      "original_sha256": "f5a3ce44ff8a544336c15f8459be883ef435e6fbc662b12b69a0c35cb49bfcfe",
+      "distributed_sha256": "f5a3ce44ff8a544336c15f8459be883ef435e6fbc662b12b69a0c35cb49bfcfe",
+      "bytes": 3556,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/carrier_coverage/ordinary_int.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/carrier_coverage/ordinary_int.py",
+      "original_sha256": "560ee05b9157df1ce1c7eff4ea2055f9ba83e2682e5760f01e16486b6c620b07",
+      "distributed_sha256": "560ee05b9157df1ce1c7eff4ea2055f9ba83e2682e5760f01e16486b6c620b07",
+      "bytes": 18862,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/grid_12x12_20261004/build.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/grid_12x12_20261004/build.py",
+      "original_sha256": "d9c1f5a77baafda7777893ee6b00606894539458848f21454a87f639d959b33d",
+      "distributed_sha256": "7671275a4845cb7d4012a666c35377cc40a99738e81e9c4522f1bc36ded1fb3b",
+      "bytes": 20314,
+      "path_text_sanitized": true
+    },
+    "optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_interop.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_interop.py",
+      "original_sha256": "7a1111a6baa2c2d462d781bd6c3819b7e161c38a0b4001b20a340d20dfa9f255",
+      "distributed_sha256": "7a1111a6baa2c2d462d781bd6c3819b7e161c38a0b4001b20a340d20dfa9f255",
+      "bytes": 23601,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_parameter.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_parameter.py",
+      "original_sha256": "a58f72f081bb899a9ccf930b34e6f9df9ac8629edcb96dcaf809d4ec6a6b7248",
+      "distributed_sha256": "a58f72f081bb899a9ccf930b34e6f9df9ac8629edcb96dcaf809d4ec6a6b7248",
+      "bytes": 7175,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_parameter_query.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_parameter_query.py",
+      "original_sha256": "df2a773c58b3abeb9b35baa6e736338e95ac126d0ff8562d7868a76cd40f32b7",
+      "distributed_sha256": "df2a773c58b3abeb9b35baa6e736338e95ac126d0ff8562d7868a76cd40f32b7",
+      "bytes": 4126,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_query.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_query.py",
+      "original_sha256": "13179d6e415e9b5210be2cf0edd8a432813b011930a4500577d94ee79a0ec4d1",
+      "distributed_sha256": "13179d6e415e9b5210be2cf0edd8a432813b011930a4500577d94ee79a0ec4d1",
+      "bytes": 7187,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_resident.c": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_resident.c",
+      "original_sha256": "c53ab0bb447b109e570438f81d5b028225caf677b497ed8af27588abfc803c46",
+      "distributed_sha256": "c53ab0bb447b109e570438f81d5b028225caf677b497ed8af27588abfc803c46",
+      "bytes": 44334,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/packed_matrix/packed.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/packed_matrix/packed.py",
+      "original_sha256": "3532991f08e696d5d59f1c1265678d12f7c563125883c4ce2d015d26d23ab0b8",
+      "distributed_sha256": "3532991f08e696d5d59f1c1265678d12f7c563125883c4ce2d015d26d23ab0b8",
+      "bytes": 14567,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/parameter_minpoly/parameter.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/parameter_minpoly/parameter.py",
+      "original_sha256": "6d833c42822fbb93aa073d39ed55712429d445aa335cef39e1258797cebabfd3",
+      "distributed_sha256": "6d833c42822fbb93aa073d39ed55712429d445aa335cef39e1258797cebabfd3",
+      "bytes": 7190,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/parameter_minpoly/parameter_query.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/parameter_minpoly/parameter_query.py",
+      "original_sha256": "7f54c8f110c5b7a98c97de8c6f0e6849e97702a93212684a602e38ec3d7b7c25",
+      "distributed_sha256": "7f54c8f110c5b7a98c97de8c6f0e6849e97702a93212684a602e38ec3d7b7c25",
+      "bytes": 4113,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/precision/build.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/precision/build.py",
+      "original_sha256": "b9b07f0066079bada38944c9d2c33c9140c7598338a273715e241b6b9a026b74",
+      "distributed_sha256": "b9b07f0066079bada38944c9d2c33c9140c7598338a273715e241b6b9a026b74",
+      "bytes": 9365,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/precision/guard.c": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/precision/guard.c",
+      "original_sha256": "95277ea5a7ea5c8224724155507a516b15fb6b2631473587e12199a59c12d06b",
+      "distributed_sha256": "95277ea5a7ea5c8224724155507a516b15fb6b2631473587e12199a59c12d06b",
+      "bytes": 18110,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/precision/guard_interop.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/precision/guard_interop.py",
+      "original_sha256": "a6af228811f5ab067a770eef1f9023c1d6f9883007f62fb43b588796f37eeb50",
+      "distributed_sha256": "a6af228811f5ab067a770eef1f9023c1d6f9883007f62fb43b588796f37eeb50",
+      "bytes": 8829,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/rank_extension/build.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/rank_extension/build.py",
+      "original_sha256": "21e43ae4c28338af423a487af1e321cadaed247dc6fc63e7a278d492bd054594",
+      "distributed_sha256": "1f249f91f3bc92f250d0c885dde3165c2658a783d0ae84b0b1107ebd7b6a53b8",
+      "bytes": 20144,
+      "path_text_sanitized": true
+    },
+    "optimized_pair_20261004/reconstruction/rank_extension/rank_interop.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/rank_extension/rank_interop.py",
+      "original_sha256": "c3da7e4b6c8e4e00be9626ecbf21377d5405ce3e6d563ef31e6cfb26339390d7",
+      "distributed_sha256": "c3da7e4b6c8e4e00be9626ecbf21377d5405ce3e6d563ef31e6cfb26339390d7",
+      "bytes": 23745,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/rank_extension/rank_query.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/rank_extension/rank_query.py",
+      "original_sha256": "93f66c46725a59deff702583f3082dc3339058e71d83b01496bde6af4c792810",
+      "distributed_sha256": "93f66c46725a59deff702583f3082dc3339058e71d83b01496bde6af4c792810",
+      "bytes": 7181,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/rank_extension/rank_resident.c": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/rank_extension/rank_resident.c",
+      "original_sha256": "58cff3bff5f0b58a54b30a223e604d7de420aef07a94c851947121dac602e4fe",
+      "distributed_sha256": "58cff3bff5f0b58a54b30a223e604d7de420aef07a94c851947121dac602e4fe",
+      "bytes": 44322,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/recovery_precision/recovery.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/recovery_precision/recovery.py",
+      "original_sha256": "392eafbd37a0e3861c59926e0041c85f91a7c27ece1d59113d9c5a0e83414ac4",
+      "distributed_sha256": "392eafbd37a0e3861c59926e0041c85f91a7c27ece1d59113d9c5a0e83414ac4",
+      "bytes": 7132,
+      "path_text_sanitized": false
+    },
+    "optimized_pair_20261004/reconstruction/terminal_readout/terminal_query.py": {
+      "source_relative_path": "repository/optimized_pair_20261004/reconstruction/terminal_readout/terminal_query.py",
+      "original_sha256": "f49993e36521e8317df2e33b3d737a54423d33b78df9d5b44a10f2ddd417e4ea",
+      "distributed_sha256": "f49993e36521e8317df2e33b3d737a54423d33b78df9d5b44a10f2ddd417e4ea",
+      "bytes": 15252,
+      "path_text_sanitized": false
+    },
+    "pari_variable_rank_20260930/code/methods.py": {
+      "source_relative_path": "repository/pari_variable_rank_20260930/code/methods.py",
+      "original_sha256": "eef95506fd8a0084802341c5fe64f9b56b766ba3f555358c6195a0e8e135ae11",
+      "distributed_sha256": "eef95506fd8a0084802341c5fe64f9b56b766ba3f555358c6195a0e8e135ae11",
+      "bytes": 5478,
+      "path_text_sanitized": false
+    },
+    "rank_cost_optimized_20260930/code/fast_convolution.py": {
+      "source_relative_path": "repository/rank_cost_optimized_20260930/code/fast_convolution.py",
+      "original_sha256": "ec47a13e0b5cbe149f3455b3e69e903a1952b793104438544a912bc0b79cbecc",
+      "distributed_sha256": "ec47a13e0b5cbe149f3455b3e69e903a1952b793104438544a912bc0b79cbecc",
+      "bytes": 14460,
+      "path_text_sanitized": false
+    },
+    "rank_cost_optimized_20260930/code/fwht.py": {
+      "source_relative_path": "repository/rank_cost_optimized_20260930/code/fwht.py",
+      "original_sha256": "7cd254380ce70e688368f19591d8dee285c64fb9ac27209b7b2b5a6ecf2f813e",
+      "distributed_sha256": "7cd254380ce70e688368f19591d8dee285c64fb9ac27209b7b2b5a6ecf2f813e",
+      "bytes": 2807,
+      "path_text_sanitized": false
+    },
+    "rank_cost_optimized_20260930/reference/code/convolution.py": {
+      "source_relative_path": "repository/rank_cost_optimized_20260930/reference/code/convolution.py",
+      "original_sha256": "8a99a7579b4aa101802348a31cb12026e29cc51e2c19919a2d435f1ac82bbc3a",
+      "distributed_sha256": "8a99a7579b4aa101802348a31cb12026e29cc51e2c19919a2d435f1ac82bbc3a",
+      "bytes": 13955,
+      "path_text_sanitized": false
+    },
+    "specialization_optimization_20260930/reference/code/modular_scalars.py": {
+      "source_relative_path": "repository/specialization_optimization_20260930/reference/code/modular_scalars.py",
+      "original_sha256": "d0864203c480c186d400f7110d4afe7e74c8192666b7447b6b891e108c6859c2",
+      "distributed_sha256": "d0864203c480c186d400f7110d4afe7e74c8192666b7447b6b891e108c6859c2",
+      "bytes": 4984,
+      "path_text_sanitized": false
+    }
+  },
+  "file_count": 34,
+  "source_bytes": 503478,
+  "source_archive_limitations": [
+    "This is a source snapshot, not a newly ported executable distribution. Native loaders/build scripts still bind the original build identities and reviews; those local historical files are deliberately not exported. Fresh execution requires new paths, local build receipts, and dependency identities.",
+    "AH mainline uses block_acquisition.acquire; Bessel mainline uses fair_acquire.acquire with ordinary_int. Optional older AH/Bessel backend branches in fair_acquire and recovery are outside this export.",
+    "Ordered matrix readout uses rank_query.query or grid_query.query. Their old-readout helpers and local packed-composition sources are included; native binaries must be rebuilt externally.",
+    "The optional standalone validation branches of ah_native.py and fast_convolution.py are not exported.",
+    "PARI methods.run_pari and its setup/input helpers are included. The optional historical run_shared comparison helper requires an unexported candidate implementation and is outside this export."
+  ],
+  "external_dependencies": [
+    "Python 3.13.15 was used for the reported measurements",
+    "python-flint 0.9.0 and FLINT 3.6.0",
+    "GMP/MPFR and matching FLINT public development headers for native builds",
+    "cypari2 2.2.4 and PARI 2.17.3 for the PARI baseline"
+  ],
+  "entrypoints": {
+    "AH acquisition": "optimized_pair_20261004/reconstruction/block_second/block_acquisition.py:acquire",
+    "Bessel acquisition": "optimized_pair_20261004/reconstruction/carrier_coverage/fair_acquire.py:acquire(ordinary_int, ...)",
+    "rank readout": "optimized_pair_20261004/reconstruction/rank_extension/rank_query.py:query",
+    "expanded grid readout": "optimized_pair_20261004/reconstruction/grid_12x12_20261004/grid_query.py:query",
+    "PARI": "pari_variable_rank_20260930/code/methods.py:run_pari",
+    "sequential and binary convolution": "rank_cost_optimized_20260930/reference/code/convolution.py:run",
+    "packed convolution": "rank_cost_optimized_20260930/code/fast_convolution.py:run",
+    "FWHT": "rank_cost_optimized_20260930/code/fwht.py:run"
+  }
+}

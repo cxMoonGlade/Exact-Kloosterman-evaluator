@@ -1,0 +1,11 @@
+method,baseline,method_lower,baseline_lower,equal,incomplete_pairs
+ah_block_second,pari_cyclic,25,0,0,0
+ah_block_second,conv_sequential,10,15,0,0
+ah_block_second,conv_binary,10,15,0,0
+ah_block_second,kronecker_binary,9,16,0,0
+ah_block_second,fwht,5,20,0,0
+ordinary_int,pari_cyclic,25,0,0,0
+ordinary_int,conv_sequential,10,15,0,0
+ordinary_int,conv_binary,10,15,0,0
+ordinary_int,kronecker_binary,8,17,0,0
+ordinary_int,fwht,5,20,0,0
