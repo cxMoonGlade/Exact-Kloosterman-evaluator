@@ -2,7 +2,7 @@
 
 Core code and experimental results for **Exact Kloosterman evaluation over binary fields with variable rank** (6 October 2026).
 
-本仓库收录 AH、Bessel 矩阵递推、PARI 循环多项式全表基线、独立的低秩 PARI 椭圆曲线点计数基线，以及已完成实验的逐次计时、精确整数输出、统计表与图表。
+This repository contains Artin–Hasse (AH) and Bessel matrix recurrence implementations, a full-table PARI cyclic-polynomial baseline, an independent low-rank PARI elliptic-curve point-counting baseline, and per-run timings, exact integer outputs, statistical summaries, and figures from completed experiments.
 
 ## Quantum simulation motivation
 
