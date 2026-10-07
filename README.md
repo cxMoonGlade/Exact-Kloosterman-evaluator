@@ -4,6 +4,10 @@ Core code and experimental results for **Exact Kloosterman evaluation over binar
 
 本仓库收录 AH、Bessel 矩阵递推、PARI 循环多项式全表基线、独立的低秩 PARI 椭圆曲线点计数基线，以及已完成实验的逐次计时、精确整数输出、统计表与图表。
 
+## Quantum simulation motivation
+
+The integers computed here also determine observables of the manuscript's specific ideal $N$-qubit evolution built from a binary-field Gauss kernel. After $L$ steps, the amplitude from a nonzero computational-basis label $y$ to $x$ is obtained from the rank-$L$ Kloosterman integer at $a=x/y$ by a known normalization and additive correction. The value at $a=1$ determines the full trace, including the fixed zero-basis state, and hence the unnormalized spectral form factor (the squared modulus of that trace). This algebraic post-processing gives individual amplitudes and spectral quantities exactly without constructing the full state vector.
+
 ## Core code
 
 The input specifies a binary field representation, a nonzero field parameter and a rank; the output is an exact signed Kloosterman integer. `N` is the binary-field degree and `L` is the rank.
