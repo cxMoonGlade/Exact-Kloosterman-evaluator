@@ -1,7 +1,7 @@
 {
   "scope": "Core mathematical sources and completed experiment results, including the separate historical Direct PARI archive and its checked query launcher.",
   "file_count": 85,
-  "total_bytes": 3686253,
+  "total_bytes": 3686267,
   "files": {
     ".gitignore": {
       "bytes": 49,
@@ -12,8 +12,8 @@
       "sha256": "3a7fb83fe8f42c45f2e661c4f16f8bfb9ce3cb714e7f4b9b7d67f3b1811ae6aa"
     },
     "README.md": {
-      "bytes": 8577,
-      "sha256": "e4b93dea95ea4c8138b2b25a7ae9b768e9c9ea936bb7956d7a690aa26da20e22"
+      "bytes": 8591,
+      "sha256": "2b44c9ec827606b092e740ce58fa4cf4b255ac97e28cad4c4084a22ca00cab67"
     },
     "core/SOURCE_MANIFEST.json": {
       "bytes": 19491,
