@@ -1,8 +1,12 @@
-# Exact Kloosterman evaluation over binary fields with variable rank
+# Exact Kloosterman evaluation for half-period quantum walks on norm graphs
 
-This repository contains the code and experimental results for the manuscript of the same title (6 October 2026). Given a binary-field representation, a nonzero field parameter and a rank, the implementations return an exact signed Kloosterman integer. `N` denotes the binary-field degree and `L` the rank.
+This repository provides exact variable-rank hyper-Kloosterman evaluation over binary fields. The quantum task is exact classical simulation of continuous-time Laplacian walks on characteristic-two norm graphs at half their minimum operator period. It asks for individual vertex probabilities and samples of complete vertex labels from any initial vertex.
 
-The main implementations use Artin-Hasse (AH) and Bessel matrix recurrences. The repository also includes a full-table PARI cyclic-polynomial baseline, an independent PARI elliptic-curve point-counting baseline for low ranks, and the timings, exact integer outputs, statistical summaries and figures from completed experiments.
+AH (Artin–Hasse) supplies the exact integers needed by the amplitude formula and rejection sampler. The [quantum task](docs/quantum_task.md) specifies the graph, input representation, output distribution and uniform complexity bounds.
+
+The published code implements the arithmetic evaluator underlying this task. Given a binary-field representation, a nonzero parameter and a rank, it returns an exact signed hyper-Kloosterman integer. In the code and data, `N` is the binary-field degree and `L` is the arithmetic rank. The quantum-task notation is $r=L=\ell-1$, with $n=N\ell$ position qubits.
+
+The arithmetic comparisons include Bessel matrix recurrences, convolution and Walsh–Hadamard tables, full-table PARI cyclic powering, and independent PARI elliptic-curve point counting at low ranks. Their exact integer outputs, timings, summaries and figures are retained with the code.
 
 ## Verify the results
 
@@ -36,7 +40,7 @@ The code is a frozen research snapshot. Fresh native runs require separately ins
 
 The matrix methods were measured with python-flint 0.9.0 and FLINT 3.6.0, using one FLINT thread. The PARI environment used cypari2 2.2.4, cysignals 1.12.6 and PARI 2.17.3.
 
-## Experimental results
+## Arithmetic benchmark results
 
 [`results/`](results/) contains individual measurements, exact output integers, recomputed CSV summaries and figures. AH has the lower median runtime in all six initial cases. In the separate 25-point comparison, AH has the lower median at 9 points and Bessel at 16. Neither method has a uniform advantage across that comparison.
 
@@ -74,11 +78,13 @@ The [saved results](results/pari_direct_20260930/) contain 90 successful runs on
 
 The computation time includes field, parameter and curve construction, point counting and integer recovery. Imports, PARI runtime initialization and the parent-observed process duration are recorded separately. This single-query computation time is not directly comparable with the four-query process wall time used for cyclic powering. See the [implementation, input limits and fresh-query commands](core/pari_direct_20260930/README.md) for details.
 
-## Quantum simulation motivation
+## Half-period quantum-walk simulation
 
-The computed integers also determine observables of the manuscript's specific ideal $N$-qubit evolution, which is built from a binary-field Gauss kernel. After $L$ steps, the amplitude from a nonzero computational-basis label $y$ to $x$ follows from the rank-$L$ Kloosterman integer at $a=x/y$, with a known normalization and additive correction.
+Let $q=2^N$ and $E=\mathbb F_{q^\ell}$, with $\ell\ge2$. Two vertices $u,v\in E$ are adjacent when $\operatorname{Norm}_{E/\mathbb F_q}(u+v)=1$. At half the minimum operator period, $t_*=\pi/2^\ell$, the walk is Fourier sampling of the trace–norm phase.
 
-The value at $a=1$ determines the full trace, including the fixed zero-basis state. Its squared modulus gives the unnormalized spectral form factor. These algebraic relations give individual amplitudes and spectral quantities exactly without constructing the full state vector.
+Every nonzero-displacement amplitude is determined by one hyper-Kloosterman sum of rank $r=\ell-1$, evaluated at the displacement's norm. AH therefore gives exact probability queries on demand. Deligne's bound and a second-moment identity give an exact rejection sampler with $r^2(1-q^{-\ell})$ expected arithmetic evaluations per complete output for $N\ge2$, $\ell\ge3$.
+
+Including preprocessing, the probability-query and expected sampling costs are polynomial jointly in $N$ and $\ell$. The complete-graph boundary $N=1$ and the uniform case $\ell=2$ have direct samplers. See the [task specification and reduction](docs/quantum_task.md) for the amplitude formula, sampler and total bit costs.
 
 ## License
 

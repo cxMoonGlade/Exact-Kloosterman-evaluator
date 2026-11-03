@@ -1,6 +1,6 @@
 # Retained experimental results
 
-This directory contains compact result tables, exact integer outputs and figures for the completed experiments, plus a separate low-rank Direct PARI archive. It omits the full local research archive, experiment protocols, historical development audits and runtime installations.
+This directory contains arithmetic benchmark tables, exact hyper-Kloosterman integers and figures, plus a separate low-rank Direct PARI archive. The recorded rank `L` corresponds to $r=\ell-1$ in the [half-period quantum-walk task](../docs/quantum_task.md). The tables measure arithmetic evaluation; complete-vertex sampling is specified in the task description.
 
 | Dataset label | Worker appearances | Exact outputs | Scope |
 | --- | ---: | ---: | --- |
