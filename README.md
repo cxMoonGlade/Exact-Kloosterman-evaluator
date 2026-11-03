@@ -80,7 +80,7 @@ The computation time includes field, parameter and curve construction, point cou
 
 ## Half-period quantum-walk simulation
 
-Let $q=2^N$ and $E=\mathbb F_{q^\ell}$, with $\ell\ge2$. Two vertices $u,v\in E$ are adjacent when$N_{E/F_q}(u+v)=1$. At half the minimum operator period, $t_*=\pi/2^\ell$, the walk is Fourier sampling of the trace–norm phase.
+Let $q=2^N$ and $E=\mathbb F_{q^\ell}$, with $\ell\ge2$. Two vertices $u,v\in E$ are adjacent when $N_{E/F_q}(u+v)=1$. At half the minimum operator period, $t_*=\pi/2^\ell$, the walk is Fourier sampling of the trace–norm phase.
 
 Every nonzero-displacement amplitude is determined by one hyper-Kloosterman sum of rank $r=\ell-1$, evaluated at the displacement's norm. AH therefore gives exact probability queries on demand. Deligne's bound and a second-moment identity give an exact rejection sampler with $r^2(1-q^{-\ell})$ expected arithmetic evaluations per complete output for $N\ge2$, $\ell\ge3$.
 
