@@ -1,7 +1,7 @@
 {
   "scope": "Core arithmetic source and completed arithmetic benchmark results, with the half-period norm-graph quantum-task specification.",
   "file_count": 86,
-  "total_bytes": 3693388,
+  "total_bytes": 3691188,
   "files": {
     ".gitignore": {
       "bytes": 49,
@@ -12,8 +12,8 @@
       "sha256": "3a7fb83fe8f42c45f2e661c4f16f8bfb9ce3cb714e7f4b9b7d67f3b1811ae6aa"
     },
     "README.md": {
-      "bytes": 9549,
-      "sha256": "d54d5e40cd632ece177e9a1bdcf3b141bbcfaa38992778c480208c4bee4dcbc3"
+      "bytes": 7778,
+      "sha256": "53e12f5c42c4f8dce7fe221cac0e5d3e482fae18670c561fe54e929448e2cf39"
     },
     "core/SOURCE_MANIFEST.json": {
       "bytes": 19491,
@@ -180,8 +180,8 @@
       "sha256": "d0864203c480c186d400f7110d4afe7e74c8192666b7447b6b891e108c6859c2"
     },
     "docs/quantum_task.md": {
-      "bytes": 6079,
-      "sha256": "a3a66c31cab2b5221d70aae38856aafeaf7c4b54f9567df41e0f895318926e4b"
+      "bytes": 6078,
+      "sha256": "537dd997aa253ca6d9c0d0eae5c52b7bc3ca4ff26f8115dc2cbf6239c51999a5"
     },
     "results/CHECK.json": {
       "bytes": 6398,
@@ -204,8 +204,8 @@
       "sha256": "77ee2564b6e52905c321d6399b7ab296ba7670a1290ffe1e0950ec88db643196"
     },
     "results/README.md": {
-      "bytes": 4814,
-      "sha256": "cd7dcf1cc2bdbd7d77728b45acd12d84502154f9fd33dc677cd46ff73fedd35e"
+      "bytes": 4386,
+      "sha256": "872812746238d5d674d9a635b745a8de678546639561cd6cfbbd418b28379460"
     },
     "results/aligned_175_cells.csv": {
       "bytes": 66771,

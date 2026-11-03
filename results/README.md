@@ -1,6 +1,6 @@
-# Retained experimental results
+# Arithmetic benchmark data
 
-This directory contains arithmetic benchmark tables, exact hyper-Kloosterman integers and figures, plus a separate low-rank Direct PARI archive. The recorded rank `L` corresponds to $r=\ell-1$ in the [half-period quantum-walk task](../docs/quantum_task.md). The tables measure arithmetic evaluation; complete-vertex sampling is specified in the task description.
+This directory contains timings, exact hyper-Kloosterman integers and figures for the arithmetic evaluators, together with low-rank Direct PARI measurements. The rank field `L` corresponds to $r=\ell-1$ in the [half-period quantum-walk task](../docs/quantum_task.md).
 
 | Dataset label | Worker appearances | Exact outputs | Scope |
 | --- | ---: | ---: | --- |
@@ -12,23 +12,31 @@ This directory contains arithmetic benchmark tables, exact hyper-Kloosterman int
 | `even_n36` | 42 | 168 | N=36; seven even ranks; AH and Bessel |
 | `figure1_extension` | 120 | 480 | N=24,32,48,64; L=4,6,8,12,16; AH and Bessel |
 
-The four-query datasets above contain 1,215 dataset appearances of 1,107 original worker streams. Exactly 108 original streams occur in more than one dataset. Repeated `sample_id` values identify reused measurements; do not count them as independent repetitions. PARI contributes 75 successful workers and 300 exact outputs in `aligned_baseline`. Method labels retain the original code names: `ordinary_int` and `ordinary_new` denote Bessel matrix recurrence; `ah_block_second` and `ah_new` denote the corresponding AH implementation.
+These four-query datasets contain 1,215 recorded appearances of 1,107 original worker runs. The 108 runs shared between datasets carry the same `sample_id`; use this field to deduplicate measurements when combining tables. PARI contributes 75 successful workers and 300 exact outputs in `aligned_baseline`.
 
-## Separate low-rank Direct PARI archive
+Method labels match the source code. `ordinary_int` and `ordinary_new` denote Bessel matrix recurrence; `ah_block_second` and `ah_new` denote the corresponding AH implementation.
 
-[`pari_direct_20260930/`](pari_direct_20260930/) preserves 90 Direct PARI single-query runs, their summaries and provenance, plus the 180 earlier Python-AH/Sage-PARI comparison records and saved validation. These records are not included in the four-query counts or CSV tables above. The Direct PARI computation clock includes field/parameter/curve construction and recovery, with imports and runtime initialization recorded separately; the archive also retains parent process durations. This is a historical low-rank comparison, not a matched test of the current native algorithms.
+## Low-rank Direct PARI measurements
+
+[`pari_direct_20260930/`](pari_direct_20260930/) contains 90 Direct PARI single-query runs, their summaries and source identities, plus 180 earlier Python-AH/Sage-PARI comparison records. These measurements and their validation records are stored separately from the four-query datasets above. The AH comparator in this experiment is the earlier Python implementation.
+
+Direct PARI computation time includes field, parameter and curve construction, point counting and integer recovery. Import time, runtime initialization and elapsed time observed by the launching process are recorded separately.
 
 ## Four-query dataset formats
 
-`exact_outputs.csv` contains decimal signed integers and their field polynomial `f`, parameter `a`, query position, rank, degree, method, repeat, dataset, original attempt ID and distributed source hash. The gzip copy contains the same bytes. Parse integer fields with arbitrary precision: spreadsheet or floating-point conversions can lose digits. Comparisons during extraction were restricted to the same `(dataset, N, L, f, a)`. Agreement on large fields is not an independent full-table validation.
+`exact_outputs.csv` stores each result as a signed decimal integer, identified by its field polynomial `f`, parameter `a`, query position, rank and field degree. It also records the method, repeat, dataset, original attempt ID and distributed source hash. The gzip copy contains the same bytes. Read integer fields with arbitrary precision to preserve every output digit.
 
-`timing_samples.csv` records every parent process wall clock in seconds, including startup, acquisition, four queries and process completion. `receipt_sha256` identifies the distributed parent receipt (the six-case campaign stores its receipts in one aggregate stream). `timing_summary.csv` recomputes each three-repeat median, minimum and maximum from these clocks. Ranges are observed ranges, not confidence intervals. The separately named original summary tables retain their existing units; `six_case_times_ms.csv` uses milliseconds.
+Output comparisons match the full `(dataset, N, L, f, a)` identity. At large field degrees, they check consistency between the recorded implementations.
 
-`output_sources.csv` maps compact sample IDs to the full original and distributed raw-stream hashes and logical source paths. `EXTRACTION_CHECK.json` gives counts, source-manifest identities and copied result-file hashes. Other `CHECK.json` files are retained outputs of earlier complete local statistics verification; their referenced full source archives are not included here. Timing batches have different scheduling conditions; old serial workers did not retain a CPU-model field.
+`timing_samples.csv` records elapsed seconds from process launch through completion, including startup, coefficient acquisition and four queries. The `receipt_sha256` field identifies the distributed parent receipt; the six-case dataset stores its receipts in one aggregate stream. `timing_summary.csv` gives the median, minimum and maximum of each set of three repetitions. Its ranges are the observed extrema. Original summary tables keep their stated units, including milliseconds in `six_case_times_ms.csv`.
 
-The three SVG figures are frozen outputs of the original complete supplement. The aligned figure shows 175 method/input cells; the later 40-cell extension is supplied separately in CSV form. The wider odd-rank parity-scaling campaign was incomplete at export and contributes no results here.
+`output_sources.csv` maps sample IDs to original and distributed raw-stream hashes and logical source paths. `EXTRACTION_CHECK.json` records counts, source-manifest identities and result-file hashes. Other `CHECK.json` files summarize earlier verification against separately retained local source archives. Measurements retain their original scheduling labels; older serial runs have no recorded CPU model.
 
-To reconstruct this compact extraction from separately retained complete local snapshots, using only the Python standard library:
+The three SVG figures reproduce the original supplement. The aligned figure contains 175 method/input cells, with the later 40-cell extension supplied separately as CSV.
+
+## Rebuild the tables from source records
+
+With a local copy of the original source archives, regenerate the compact data using the Python standard library:
 
 ```sh
 python3 extract_results.py --artifact /path/to/artifact \
@@ -36,4 +44,4 @@ python3 extract_results.py --artifact /path/to/artifact \
   --pari-results /path/to/pari_results --output /path/to/new_results
 ```
 
-The source directories need the original distributed manifests and saved statistics. The extractor verifies every used receipt/raw-stream hash and exact receipt/raw agreement, verifies fixed completed counts and within-dataset integer consistency, regenerates timing summaries, and copies the already verified result tables and figures. It imports no scientific implementation, performs no mathematical experiment, and leaves the source snapshots unchanged.
+The input directories must contain the original distributed manifests and saved statistics. The extractor checks source hashes, receipt/output agreement, dataset counts and integer consistency, then regenerates timing summaries and copies the result tables and figures. It reads the saved measurements and writes the extraction to `--output`.

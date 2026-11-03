@@ -1,12 +1,18 @@
-# Exact Kloosterman evaluation for half-period quantum walks on norm graphs
+# Exact hyper-Kloosterman evaluation for half-period quantum walks on norm graphs
 
-This repository provides exact variable-rank hyper-Kloosterman evaluation over binary fields. The quantum task is exact classical simulation of continuous-time Laplacian walks on characteristic-two norm graphs at half their minimum operator period. It asks for individual vertex probabilities and samples of complete vertex labels from any initial vertex.
+AH (Artin–Hasse) computes hyper-Kloosterman sums exactly over binary fields, allowing both the field degree and rank to grow. These integers determine position probabilities for quantum walks on norm graphs at half their minimum operator period.
 
-AH (Artin–Hasse) supplies the exact integers needed by the amplitude formula and rejection sampler. The [quantum task](docs/quantum_task.md) specifies the graph, input representation, output distribution and uniform complexity bounds.
+This repository contains the arithmetic evaluator, comparison methods and saved benchmark results. Given a binary-field representation, a nonzero field parameter and a rank, the evaluator returns a signed integer. The [quantum task description](docs/quantum_task.md) explains how these evaluations give exact probabilities and samples of complete vertex labels.
 
-The published code implements the arithmetic evaluator underlying this task. Given a binary-field representation, a nonzero parameter and a rank, it returns an exact signed hyper-Kloosterman integer. In the code and data, `N` is the binary-field degree and `L` is the arithmetic rank. The quantum-task notation is $r=L=\ell-1$, with $n=N\ell$ position qubits.
+## Quantum task
 
-The arithmetic comparisons include Bessel matrix recurrences, convolution and Walsh–Hadamard tables, full-table PARI cyclic powering, and independent PARI elliptic-curve point counting at low ranks. Their exact integer outputs, timings, summaries and figures are retained with the code.
+Let $q=2^N$ and $E=\mathbb F_{q^\ell}$, with $\ell\ge2$. The norm graph joins $u,v\in E$ when $N_{E/F_q}(u+v)=1$. We consider its continuous-time Laplacian walk from any initial vertex at the half-period $t_*=\pi/2^\ell$.
+
+Each nonzero-displacement amplitude is a normalized hyper-Kloosterman sum of rank $r=\ell-1$, evaluated at the displacement's norm. Exact evaluation therefore gives individual output probabilities. Combining these values with Deligne's bound gives a rejection sampler for the complete position distribution.
+
+Including preprocessing, probability queries take deterministic polynomial bit time and sampling takes expected polynomial bit time, jointly in $N$ and $\ell$. The cases $N=1$ and $\ell=2$ use direct samplers. The [task description](docs/quantum_task.md) gives the formulas, expected query count and total costs.
+
+In the code and data, `N` denotes the binary-field degree and `L` the arithmetic rank: $L=r=\ell-1$. Each sampled position has $n=N\ell$ bits.
 
 ## Verify the results
 
@@ -16,13 +22,13 @@ From the repository root, with Python 3.9 or later:
 python3 verify_results.py
 ```
 
-This command uses only the Python standard library. It checks file hashes and exact-output consistency, and recomputes timing summaries from the saved measurements. Verification reads the distributed data; it does not run mathematical kernels or launch a benchmark. Receipt hashes link the exported data to the original records; the complete research archive is outside the scope of this release.
+The command uses the Python standard library to check file hashes, compare saved exact outputs and recompute timing summaries. It reads the distributed measurements without running the arithmetic kernels.
 
 ## Core code
 
 | Component | Entry point |
 | --- | --- |
-| Shared Artin-Hasse coefficient construction | [block_acquisition.py](core/optimized_pair_20261004/reconstruction/block_second/block_acquisition.py), [block.c](core/optimized_pair_20261004/reconstruction/block_second/block.c) |
+| Shared Artin–Hasse coefficient construction | [block_acquisition.py](core/optimized_pair_20261004/reconstruction/block_second/block_acquisition.py), [block.c](core/optimized_pair_20261004/reconstruction/block_second/block.c) |
 | Bessel matrix recurrence | [ordinary_int.py](core/optimized_pair_20261004/reconstruction/carrier_coverage/ordinary_int.py) |
 | Common parameter construction | [parameter.py](core/optimized_pair_20261004/reconstruction/parameter_minpoly/parameter.py) |
 | Specialization and ordered-matrix readout | [rank_query.py](core/optimized_pair_20261004/reconstruction/rank_extension/rank_query.py), [rank_resident.c](core/optimized_pair_20261004/reconstruction/rank_extension/rank_resident.c) |
@@ -32,59 +38,51 @@ This command uses only the Python standard library. It checks file hashes and ex
 | Integer convolution | [convolution.py](core/rank_cost_optimized_20260930/reference/code/convolution.py) |
 | Packed convolution and integer FWHT | [fast_convolution.py](core/rank_cost_optimized_20260930/code/fast_convolution.py), [fwht.py](core/rank_cost_optimized_20260930/code/fwht.py) |
 
-[`core/`](core/) preserves the source files used in the experiments, their local dependencies and their original relative layout. [`core/SOURCE_MANIFEST.json`](core/SOURCE_MANIFEST.json) records the source hashes.
+[`core/`](core/) contains the benchmarked source files and their local dependencies in the original directory layout. [`core/SOURCE_MANIFEST.json`](core/SOURCE_MANIFEST.json) records their hashes.
 
 ### Running the research implementations
 
-The code is a frozen research snapshot. Fresh native runs require separately installed dependencies, updated paths and new local build identities. The original review and build checks are specific to the measurement machine, so they need adaptation for a new environment. The release includes source code; native binaries, historical review documents and unrelated research files are omitted.
+To run the native implementations, install the dependencies and compile the included sources. The build scripts retain paths, build identities and review-file checks from the original environment; adapt these settings to your machine before compiling.
 
 The matrix methods were measured with python-flint 0.9.0 and FLINT 3.6.0, using one FLINT thread. The PARI environment used cypari2 2.2.4, cysignals 1.12.6 and PARI 2.17.3.
 
 ## Arithmetic benchmark results
 
-[`results/`](results/) contains individual measurements, exact output integers, recomputed CSV summaries and figures. AH has the lower median runtime in all six initial cases. In the separate 25-point comparison, AH has the lower median at 9 points and Bessel at 16. Neither method has a uniform advantage across that comparison.
+The [arithmetic benchmarks](results/README.md) compare AH with Bessel matrix recurrences, convolution and Walsh–Hadamard tables, PARI cyclic powering, and low-rank point counting. AH has the lower median runtime in all six initial cases. In the separate 25-point AH/Bessel comparison, AH has the lower median at 9 points and Bessel at 16.
 
-The main datasets time initialization and four exact queries per successful worker, from process launch through completion. The low-rank Direct PARI experiment uses one query per worker and records computation time and total process duration separately; see [PARI](#pari) for the timing definitions.
+The main datasets measure process time from launch through initialization, four exact queries and completion. Direct PARI uses one query per process, with computation time and total process time recorded separately.
 
-| Dataset | Inputs | Successful workers |
+| Dataset | Inputs | Completed runs |
 | --- | --- | ---: |
 | Six-case AH/Bessel comparison | `N=8,16`; `L=16,24,32`; 2 methods × 3 repeats | 36 |
 | Seven-method comparison, including PARI | `N,L ∈ {4,6,8,12,16}`; 7 methods × 3 repeats | 525 |
 | Adjacent odd/even ranks | `N=8,16`; `L=3,4,7,8,15,16,23,24,31,32`; 4 methods × 3 repeats | 240 |
 | Larger-field even ranks | `N=8,16,24,32,48,64`; `L=4,8,16,24,32,48,64`; 2 methods × 3 repeats | 252 |
-| Separate `N=36` batch | `L=4,8,16,24,32,48,64`; 2 methods × 3 repeats | 42 |
-| Larger-field Figure 1 extension | `N=24,32,48,64`; `L=4,6,8,12,16`; 2 methods × 3 repeats | 120 |
-| Historical Direct PARI point counting | `N=2,4,6,8,12`; `L=2,3`; `a=1,2,3`; 3 repeats | 90 |
+| Even ranks at `N=36` | `L=4,8,16,24,32,48,64`; 2 methods × 3 repeats | 42 |
+| Larger-field comparison | `N=24,32,48,64`; `L=4,6,8,12,16`; 2 methods × 3 repeats | 120 |
+| Direct PARI point counting | `N=2,4,6,8,12`; `L=2,3`; `a=1,2,3`; 3 repeats | 90 |
 
-Some datasets share original observations, so the counts above cannot be summed as independent repetitions. Serial and parallel scheduling batches are labelled separately. The broader odd-rank scaling experiment and full 12×12 grid were incomplete at export and are excluded from the completed results. Agreement between large-field outputs is a consistency check, not an independent full-table reference.
+Some datasets reuse measurements. The [data guide](results/README.md) identifies this overlap and defines the output and timing fields. The saved results include exact integer comparisons across methods; large-field agreement checks consistency where a full-table reference is unavailable.
 
 ## PARI
 
-The two PARI baselines perform different computations and use different timing conventions.
+PARI supplies two baselines: full-table cyclic powering and single-parameter elliptic-curve point counting.
 
 ### Full-table cyclic powering
 
-The [full-table implementation](core/pari_variable_rank_20260930/code/methods.py) has a [25-point result table](results/pari_25_cells.csv) covering 75 successful workers and 300 exact integer outputs.
+The [full-table implementation](core/pari_variable_rank_20260930/code/methods.py) has a [25-point result table](results/pari_25_cells.csv) covering 75 runs and 300 exact integer outputs.
 
-`run_pari` constructs the supplied binary field, finds a primitive element, computes a full integer cyclic-polynomial power and uses discrete logarithms to extract the requested coefficients. It uses cypari2 with an inline GP character-polynomial function, so no external `.gp` file is needed. The adapter accepts ranks `L ∈ {4,6,8,12,16}`.
+`run_pari` constructs the supplied binary field and finds a primitive element. It then computes an integer cyclic-polynomial power and extracts the requested coefficients using discrete logarithms. The GP function is embedded in the cypari2 adapter, which accepts ranks `L ∈ {4,6,8,12,16}`.
 
-The aligned comparison used an 8 MiB initial PARI stack, a 72 GiB stack maximum and an 80 GiB address-space limit per worker. Its wrapper bypassed `setup_pari()`, whose resource settings differ from those used in the measurements. The optional `run_shared()` helper implements a separate historical method and is outside this baseline.
+The comparison used an 8 MiB initial PARI stack, a 72 GiB stack maximum and an 80 GiB address-space limit per process. Its wrapper set these values directly, bypassing `setup_pari()`. The separate `run_shared()` helper was not used in this comparison.
 
 ### Low-rank point counting
 
-The [Direct PARI worker](core/pari_direct_20260930/direct_worker.py) calls `ellinit` and `ellcard` for a single supplied parameter. At rank two, it returns the elliptic-curve point count minus `2^N + 1`; at rank three, it uses `Kl_3(a) = Kl_2(a)^2 - 2^N`. This computation requires no full cyclic-polynomial table.
+The [Direct PARI implementation](core/pari_direct_20260930/direct_worker.py) calls `ellinit` and `ellcard` for a single supplied parameter. At rank two, it returns the elliptic-curve point count minus `2^N + 1`. At rank three, it uses `Kl_3(a) = Kl_2(a)^2 - 2^N`.
 
-The [saved results](results/pari_direct_20260930/) contain 90 successful runs on 30 cases, the original source identities and 180 records from the preceding AH/Sage-PARI comparison. The inputs were `N=2,4,6,8,12`, `L=2,3` and three nonzero parameter labels. The AH comparison used an older Python research reference; it does not compare Direct PARI with the current native implementations. An initial run that failed a metadata assertion is archived separately.
+The [saved results](results/pari_direct_20260930/) contain 90 Direct PARI runs on 30 cases and 180 runs comparing a Python AH reference with Sage/PARI. The inputs were `N=2,4,6,8,12`, `L=2,3` and three nonzero parameter labels.
 
-The computation time includes field, parameter and curve construction, point counting and integer recovery. Imports, PARI runtime initialization and the parent-observed process duration are recorded separately. This single-query computation time is not directly comparable with the four-query process wall time used for cyclic powering. See the [implementation, input limits and fresh-query commands](core/pari_direct_20260930/README.md) for details.
-
-## Half-period quantum-walk simulation
-
-Let $q=2^N$ and $E=\mathbb F_{q^\ell}$, with $\ell\ge2$. Two vertices $u,v\in E$ are adjacent when $N_{E/F_q}(u+v)=1$. At half the minimum operator period, $t_*=\pi/2^\ell$, the walk is Fourier sampling of the trace–norm phase.
-
-Every nonzero-displacement amplitude is determined by one hyper-Kloosterman sum of rank $r=\ell-1$, evaluated at the displacement's norm. AH therefore gives exact probability queries on demand. Deligne's bound and a second-moment identity give an exact rejection sampler with $r^2(1-q^{-\ell})$ expected arithmetic evaluations per complete output for $N\ge2$, $\ell\ge3$.
-
-Including preprocessing, the probability-query and expected sampling costs are polynomial jointly in $N$ and $\ell$. The complete-graph boundary $N=1$ and the uniform case $\ell=2$ have direct samplers. See the [task specification and reduction](docs/quantum_task.md) for the amplitude formula, sampler and total bit costs.
+Computation time covers field, parameter and curve construction, point counting and integer recovery. Imports, PARI initialization and total process time have separate fields. See the [implementation guide](core/pari_direct_20260930/README.md) for input limits and commands.
 
 ## License
 

@@ -1,19 +1,19 @@
 # Exact classical simulation of half-period quantum walks on norm graphs
 
-The task is to compute exact position probabilities and generate complete vertex labels for a continuous-time quantum walk. AH evaluates the variable-rank hyper-Kloosterman sums that determine this distribution.
+At half their minimum operator period, Laplacian quantum walks on binary norm graphs have nonzero-displacement amplitudes given by hyper-Kloosterman sums. AH evaluates these sums exactly. The resulting probabilities support exact classical sampling of complete vertex labels from any initial vertex.
 
 ## Graph, input and output
 
-Let $q=2^N$, $E=\mathbb F_{q^\ell}$ and $n=N\ell$, where $N\ge1$ and $\ell\ge2$. The input gives monic irreducible polynomials specifying the tower
+Let $q=2^N$, $E=\mathbb F_{q^\ell}$ and $n=N\ell$, where $N\ge1$ and $\ell\ge2$. The input supplies monic irreducible polynomials $f$ and $g$, of degrees $N$ and $\ell$, specifying the tower
 
 $$
-\mathbb F_q=\mathbb F_2[z]/(f),\qquad E=\mathbb F_q[y]/(g),
+\mathbb F_q=\mathbb F_2[z]/(f),\qquad E=\mathbb F_q[y]/(g).
 $$
 
-with degrees $N$ and $\ell$, respectively. A vertex is represented by its $\ell$ base-field coefficients, giving a complete $n$-bit label. Write
+A vertex is stored as $\ell$ base-field coefficients, giving an $n$-bit label. Write
 
 $$
-Q=q^\ell,\qquad \nu=\operatorname{Norm}_{E/\mathbb F_q},\qquad d=\frac{Q-1}{q-1}.
+Q=q^\ell,\qquad \nu=N_{E/F_q},\qquad d=\frac{Q-1}{q-1}.
 $$
 
 The characteristic-two Kollár–Rónyai–Szabó norm graph joins $u,v\in E$ when $\nu(u+v)=1$. It is a cubelike graph of degree $d$. For adjacency matrix $A$, use the Laplacian Hamiltonian $dI-A$ and evolution
@@ -22,22 +22,22 @@ $$
 U(t)=\exp\!\bigl(-it(dI-A)\bigr).
 $$
 
-The minimum operator period is $T=2\pi/2^\ell$. The task fixes the evolution time to $t_*=T/2=\pi/2^\ell$. Given an initial vertex $v$, the target law is
+We study the walk at $t_*=T/2=\pi/2^\ell$, where $T=2\pi/2^\ell$ is its minimum operator period. For an initial vertex $v$, the position distribution is
 
 $$
 p_v(u)=\left|\langle u|U(t_*)|v\rangle\right|^2.
 $$
 
-A probability query returns $p_v(u)$ as an exact rational number. A sampling call returns all $n$ bits of a vertex with this probability. Sampling uses independent fair random bits and terminates almost surely.
+A probability query returns $p_v(u)$ as an exact rational number. A sampling call returns the complete $n$-bit label of $u$ with probability $p_v(u)$. Sampling uses independent fair random bits and terminates almost surely.
 
-## From the quantum walk to an arithmetic query
+## Exact amplitudes
 
-Let $\operatorname{tr}=\operatorname{Tr}_{\mathbb F_q/\mathbb F_2}$. For nonzero $c\in\mathbb F_q$ and rank $r\ge1$, define
+Let $tr=Tr_{\mathbb F_q/\mathbb F_2}$. For nonzero $c\in\mathbb F_q$ and rank $r\ge1$, define
 
 $$
-\operatorname{Kl}_r(c)=
+Kl_r(c)=
 \sum_{\substack{x_1,\ldots,x_r\in\mathbb F_q^\times\\x_1\cdots x_r=c}}
-(-1)^{\operatorname{tr}(x_1+\cdots+x_r)}.
+(-1)^{tr(x_1+\cdots+x_r)}.
 $$
 
 The arithmetic rank is stored as `L` in the published code and result tables. For the quantum walk, set $r=L=\ell-1$.
@@ -46,7 +46,7 @@ A $2$-adic congruence identifies the half-period unitary as
 
 $$
 U(t_*)=\mathcal F_E\,
-\operatorname{diag}_{a\in E}\!\left((-1)^{\operatorname{tr}(\nu(a))}\right)
+diag_{a\in E}\!\left((-1)^{tr(\nu(a))}\right)
 \mathcal F_E,
 $$
 
@@ -54,7 +54,7 @@ where
 
 $$
 \mathcal F_E|x\rangle=
-Q^{-1/2}\sum_{a\in E}(-1)^{\operatorname{Tr}_{E/\mathbb F_2}(ax)}|a\rangle.
+Q^{-1/2}\sum_{a\in E}(-1)^{Tr_{E/\mathbb F_2}(ax)}|a\rangle.
 $$
 
 Writing $b=u+v$, the amplitudes are
@@ -63,26 +63,28 @@ $$
 \langle u|U(t_*)|v\rangle=
 \begin{cases}
 (1-d)/Q,&b=0,\\[2pt]
-(-1)^r q\operatorname{Kl}_r(\nu(b))/Q,&b\ne0.
+(-1)^r q Kl_r(\nu(b))/Q,&b\ne0.
 \end{cases}
 $$
 
-Thus one exact integer evaluation determines the probability of any nonzero displacement. Its parameter is computed directly in the supplied tower as $\nu(b)=\operatorname{Res}_y(g,b(y))$.
+Squaring this expression gives each output probability from one exact integer evaluation, with the return probability available directly. For $b\ne0$, the arithmetic parameter is $\nu(b)=Res_y(g,b(y))$, computed in the supplied tower representation.
+
+The Fourier factorization also gives an $O(\ell n^2)$-gate quantum implementation, using $n$ position qubits and polynomially many auxiliary qubits. For $N\ge2$ and $\ell\ge3$, the unitary is non-Clifford. Its position distribution stays far from distributions supported on polynomially many vertices as $n$ grows.
 
 ## Exact sampling of complete positions
 
-For $N\ge2$ and $\ell\ge3$, precompute the AH coefficients once for degree $N$ and rank $r$. Put $B=r^2q^{r-1}$.
+For $N\ge2$ and $\ell\ge3$, precompute the AH coefficients once for degree $N$ and rank $r$. Deligne's bound $|Kl_r(c)|\le r q^{(r-1)/2}$ gives the squared envelope $B=r^2q^{r-1}$. One sample is generated as follows.
 
 1. Return $v$ with probability $(d-1)^2/Q^2$. Otherwise enter the rejection loop.
-2. Propose a uniform nonzero displacement $b\in E^\times$, compute $c=\nu(b)$, and evaluate $\operatorname{Kl}_r(c)$ using AH.
-3. Accept with probability $\operatorname{Kl}_r(c)^2/B$ and return $v+b$. On rejection, repeat step 2.
+2. Propose a uniform nonzero displacement $b\in E^\times$, compute $c=\nu(b)$, and evaluate $Kl_r(c)$ using AH.
+3. Accept with probability $Kl_r(c)^2/B$ and return $v+b$. On rejection, repeat step 2.
 
-Each proposal already supplies a complete vertex label. Acceptance depends only on its norm, so it preserves uniformity within every norm fiber. The resulting law is exactly $p_v$.
+Each proposal supplies a complete vertex label. Because acceptance depends only on the norm, vertices with the same norm remain equally likely. The return branch and rejection loop together produce exactly $p_v$.
 
-Deligne's bound $|\operatorname{Kl}_r(c)|\le r q^{(r-1)/2}$ supplies the envelope. The identity
+The second-moment identity
 
 $$
-\sum_{c\in\mathbb F_q^\times}\operatorname{Kl}_r(c)^2
+\sum_{c\in\mathbb F_q^\times}Kl_r(c)^2
 =\frac{1+(q-2)q^r}{q-1}
 $$
 
@@ -92,13 +94,13 @@ $$
 \mathbb E J=r^2(1-Q^{-1}).
 $$
 
-All random decisions use exact integer comparisons. For example, draw a uniform integer below $B$ and compare it with $\operatorname{Kl}_r(c)^2$ in step 3.
+All random decisions use exact integer comparisons. For example, draw a uniform integer below $B$ and compare it with $Kl_r(c)^2$ in step 3.
 
-The boundary cases use direct distributions. At $N=1$, the graph is $K_{2^\ell}$: return to $v$ has probability $(1-2/Q)^2$, and every other vertex has probability $4/Q^2$. At $\ell=2$, the position distribution is uniform on all $Q$ vertices. These branches require no AH evaluations.
+The boundary cases have direct samplers. At $N=1$, the graph is $K_{2^\ell}$. Return to $v$ has probability $(1-2/Q)^2$, and every other vertex has probability $4/Q^2$. At $\ell=2$, the position distribution is uniform on all $Q$ vertices. Both cases use the explicit probabilities without evaluating AH.
 
 ## Uniform total cost
 
-Given the field polynomials, the theoretical AH algorithm has preprocessing and per-evaluation bit costs
+For $N,r\ge2$, AH requires shared preprocessing followed by one evaluation per requested parameter. Each stage has bit cost
 
 $$
 \widetilde O\!\left(N^2r^{1+\omega_0}\right),\qquad \omega_0=\log_2 7.
@@ -117,12 +119,12 @@ $$
 +S\,\widetilde O\!\left(N^2\ell^{3+\omega_0}\right).
 $$
 
-This includes preprocessing, rejected proposals, field norms, exact random decisions and complete vertex output. The bound is polynomial jointly in $N$ and $\ell$, hence polynomial in the label length $n=N\ell$.
+The first term covers shared preprocessing; the second includes every rejected proposal, field norm, exact random decision and complete vertex output. The bound is polynomial jointly in $N$ and $\ell$, hence polynomial in the label length $n=N\ell$.
+
+## Listed coherent inputs
 
 The same signed amplitude formula supports explicitly listed coherent inputs with Gaussian-integer coefficients. For $k$ distinct input vertices, a mixture proposal followed by an interference acceptance test uses at most $k[r^2(1-Q^{-1})+k]$ expected AH evaluations in the AH branch. Its expected bit cost is polynomial jointly in $N$, $\ell$, $k$ and the coefficient bit length.
 
-The quantum evolution also has an $O(\ell n^2)$-gate implementation with $n$ position qubits and polynomially many auxiliary qubits. For $N\ge2$ and $\ell\ge3$, it is non-Clifford and its position law stays far from distributions supported on polynomially many vertices. The exact classical sampler exploits the finite-field arithmetic of this half-period distribution.
-
 ## Published arithmetic implementation
 
-The [core source](../README.md#core-code) implements the integer evaluator, and the [saved benchmarks](../results/README.md) measure that arithmetic computation. The theoretical costs above use structured preprocessing and semilinear reduction. The released arithmetic implementation reads out the trace through ordered Frobenius matrix products.
+The [core source](../README.md#core-code) implements the integer evaluator; the [benchmarks](../results/README.md) report its arithmetic costs. The complexity bounds above use structured preprocessing and semilinear reduction. The benchmarked implementation computes the Frobenius trace through ordered matrix products.
